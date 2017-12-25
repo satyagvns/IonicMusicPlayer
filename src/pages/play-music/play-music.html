@@ -1,0 +1,48 @@
+<!--
+  Generated template for the PlayMusicPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{songData?.title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content [ngStyle] = "{'background': 'url('+ songData?.art +') no-repeat center center'}">
+</ion-content>
+
+<ion-footer style = "background-color: #FFF; height: 90px; vertical-align: middle;">
+	<ion-grid>
+		<ion-row>
+			<ion-range style = "width: 100%; margin-top:-8%;" 
+			       min="{{minRange}}" 
+			       max="{{maxRange}}" 
+			       step="1" 
+			       color="danger" 
+			       [(ngModel)]="myRange"
+			       (ionBlur) = "changeTime($event)" >
+            </ion-range>
+		</ion-row>
+
+	</ion-grid>
+	<ion-grid style = "margin-top:-6%;">
+		<ion-row>
+		<ion-col col-12 text-center style = "left: 6%;">
+			<button class = "play_btn" *ngIf = "playStory == 0" ion-button color="danger" (click)="play()">
+			    <ion-icon name="play"></ion-icon>
+			</button>
+
+			<button class = "play_btn" *ngIf = "playStory == 1" ion-button color="danger" (click)="pause()">
+				<ion-icon ios="ios-pause" md="md-pause"></ion-icon>
+			    
+			</button>
+		</ion-col>
+
+		</ion-row>		
+	</ion-grid>
+</ion-footer>
